@@ -34,24 +34,24 @@ var work = {
 			"employer": "EZFX Private Limited",
 			"title": "Analyst",
 			"location": "Singapore",
-			"dates": 0.8,
-			"decription": "Rate Analysis, Price Optimization and Demand Forecast",
+			"dates": "September 2014 to Present",
+			"description": "Rate Analysis, Price Optimization, Demand Forecast",
 			"url": "www.ezfx.com.sg"
 		},
 		{
 			"employer": "Enerdata",
 			"title": "Junior Analyst",
 			"location": "Singapore",
-			"dates": 0.5,
-			"decription": "Energy Regression Analysis, Business Intelligence, Project Management",
+			"dates": "January 2014 to March 2014",
+			"description": "Energy Regression Analysis, Business Intelligence, Project Management",
 			"url": "www.enerdata.net"	
 		},
 		{
 			"employer": "PropertyGuru",
 			"title": "Intern",
 			"location": "Singapore",
-			"dates": 0.25,
-			"decription": "Booking System Development - VBA",
+			"dates": "May 2013 to July 2013",
+			"description": "Booking System Development - VBA, NetSuite Database Cleaning",
 			"url": "www.propertygur.com.sg"
 		}
 	]
@@ -125,12 +125,21 @@ if(bio.skills.length > 0){
 
 var formattedWorkEmployer;
 var formattedWorkTitle;
+var formattedWorkDates;
+var formattedWorkLocation;
+var formattedWorkDescription;
 
 if(work.jobs.length > 0){
 	$("#workExperience").append(HTMLworkStart);
 	for(var i = 0; i < work.jobs.length; i++){
 		formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
 		formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-		$(".work-entry:last").append(formattedWorkEmployer, formattedWorkTitle);
+		formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+		formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+		formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+		$(".work-entry:last").append(formattedWorkEmployer+formattedWorkTitle);
+		$(".work-entry:last").append(formattedWorkDates);
+		$(".work-entry:last").append(formattedWorkLocation);
+		$(".work-entry:last").append(formattedWorkDescription);
 	}
 }
