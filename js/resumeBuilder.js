@@ -14,7 +14,7 @@ var bio = {
 	},
 	"picture": "images/fun.jpg",
 	"skills": ["mathematics", "web development", "excel-vba", "data analysis", "modelling"]
-	};
+};
 
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
@@ -143,3 +143,7 @@ if(work.jobs.length > 0){
 		$(".work-entry:last").append(formattedWorkDescription);
 	}
 }
+
+$(document).click(function logClick(loc){
+	logClicks(loc.pageX, loc.pageY);
+})
