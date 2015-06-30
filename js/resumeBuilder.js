@@ -90,28 +90,49 @@ var education = {
 
 };
 var projects = {
-	"project": [
+	"tasks": [
 		{
 			"title": "Trawler",
 			"dates": "2014",
 			"description": "A simple crawler and parser that helps to collect rates from different pre-defined sources.\
 							The results are stored and used to compare, perform distribution analysis and present in form\
-							of table and line graph."
+							of table and line graph.",
+			"image": "images/197x148.gif"
 		},
 		{
 			"title": "EZFX Responsive Website",
 			"dates": "2014",
-			"description": "Modified a non-responsive website to a respondive website and added JavaScript animations."
+			"description": "Modified a non-responsive website to a respondive website and added JavaScript animations.",
+			"image": "images/197x148.gif"
 		},
 		{
 			"title": "Price Optimization Model",
-			"date": "2015",
+			"dates": "2015",
 			"description": "Build a Optimization Model to determine multi-currency spread based on historical and live rate\
 							from in-house database and public API. The model algorithm was developed on Simplex Method while\
-							the programming is used Node.js and Python."
+							the programming is used Node.js and Python.",
+			"image": "images/197x148.gif"
 		}
 	]
 };
+
+projects.display = function(){
+	var formattedProjectTittle;
+	var formattedProejctDates;
+	var formattedProjectDescription;
+	var formattedProjectImage;
+
+	for (i = 0; i < projects.tasks.length; i++){
+		formattedProjectTittle = HTMLprojectTitle.replace("%data%", projects.tasks[i].title);
+		formattedProjectDates = HTMLprojectDates.replace("%data%", projects.tasks[i].dates);
+		formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.tasks[i].description);
+		formattedProjectImage = HTMLprojectImage.replace("%data%", projects.tasks[i].image);
+		$("#projects").append(HTMLprojectStart);
+		$(".project-entry:last").append(formattedProjectTittle,formattedProjectDates, formattedProjectDescription, formattedProjectImage);
+	} 
+};
+
+projects.display();
 
 var formattedskills = "";
 
@@ -144,6 +165,13 @@ if(work.jobs.length > 0){
 	}
 }
 
-$(document).click(function logClick(loc){
-	logClicks(loc.pageX, loc.pageY);
-})
+function inName(strName){
+	var nameArr = strName.trim().split(" ");
+	nameArr[nameArr.length - 1] = nameArr[nameArr.length - 1].toUpperCase();
+	for (i = 0; i < nameArr.length - 1; i++){
+		nameArr[i] = nameArr[i][0].toUpperCase() + nameArr[i].slice(1).toLowerCase();
+	}
+	return nameArr.join(" ");
+}
+
+$("#main").append(internationalizeButton);
