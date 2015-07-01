@@ -57,7 +57,7 @@ var work = {
 	]
 };
 var education = {
-	"school": [
+	"schools": [
 		{
 			"name": "National University of Singapore",
 			"location": "Singapore",
@@ -65,6 +65,14 @@ var education = {
 			"major": "Applied Mathematics",
 			"dates": "2010-2014",
 			"url": "www.nus.edu.sg"
+		},
+		{
+			"name": "Le Hong Phong Highschool",
+			"location": "Ho Chi Minh City, Vietnam",
+			"degree": "A-level",
+			"major": "Literture",
+			"dates": "2006-2009",
+			"url": ""
 		}
 	],
 	"onlineCourses": [
